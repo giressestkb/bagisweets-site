@@ -139,6 +139,34 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 .shot a.pic { display: block; border-radius: 12px; }
 .ig { align-self: center; text-align: center; }
 footer a { color: var(--accent); }
+
+/* ---- Réseaux, avis, atelier ---- */
+.facts span.hl { background: var(--accent); color: var(--accent-fg); font-weight: 700; }
+.social { display: flex; flex-wrap: wrap; gap: 10px; }
+.social a { display: inline-flex; flex-direction: column; justify-content: center; min-height: 52px; padding: 8px 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); text-decoration: none; line-height: 1.2; flex: 1 1 140px; }
+.social a b { font-weight: 700; }
+.social a small { color: var(--muted); font-size: 12px; }
+.social a:hover { border-color: var(--accent); }
+section.block { display: flex; flex-direction: column; gap: 14px; }
+section.block h2 { font-family: var(--font-display); font-size: clamp(22px, 4vw, 28px); margin: 0; }
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.quote { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.quote blockquote { margin: 0; font-size: 16px; line-height: 1.5; }
+.quote blockquote::before { content: "\201C"; display: block; font-family: var(--font-display); font-size: 38px; line-height: .6; color: var(--accent); }
+.quote figcaption { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.quote a { color: var(--accent); }
+.stars { color: var(--accent); letter-spacing: 2px; font-size: 15px; }
+.trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.trust div { background: var(--accent-soft); border-radius: 14px; padding: 14px 16px; font-size: 15px; }
+.trust b { display: block; font-family: var(--font-display); font-size: 17px; }
+.atelier { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.atelier ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+.atelier .acts { display: flex; flex-wrap: wrap; gap: 10px; }
+.atelier .acts .btn { flex: 1 1 200px; }
+.school { display: flex; gap: 14px; align-items: flex-start; background: var(--accent-soft); border-radius: 14px; padding: 14px 16px; }
+.school .seal { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; }
+.school p { margin: 0; font-size: 15px; }
+@media (max-width: 640px) { .social a { flex-basis: 100%; } .atelier { padding: 18px; } }
 </style>
 </head>
 <body>
@@ -150,9 +178,15 @@ footer a { color: var(--accent); }
     <div class="facts">
       <span>Paris 18</span>
       <span>Retrait à l'atelier</span>
-      <span>Pâtissière diplômée Ferrandi Paris</span>
+      <span class="hl">Diplômée de Ferrandi Paris</span>
     </div>
   </header>
+
+  <nav class="social" aria-label="Retrouvez Bagisweets sur les réseaux">
+    <a href="https://www.instagram.com/bagisweets/" target="_blank" rel="noopener noreferrer"><b>Instagram</b><small>@bagisweets · mes créations</small></a>
+    <a href="https://www.tiktok.com/@bagisweets.patiss" target="_blank" rel="noopener noreferrer"><b>TikTok</b><small>@bagisweets.patiss · en vidéo</small></a>
+    <a href="https://www.facebook.com/share/1Cc7MkVNPC/" target="_blank" rel="noopener noreferrer"><b>Facebook</b><small>Bagisweets · actualités</small></a>
+  </nav>
 
   <section id="gallery" aria-labelledby="gh">
     <h2 id="gh">Quelques créations</h2>
@@ -161,6 +195,55 @@ footer a { color: var(--accent); }
     <div class="shots" id="shots"></div>
     <button class="btn ghost more" type="button" id="more" hidden>Voir plus de créations</button>
     <a class="btn primary ig" href="https://www.instagram.com/bagisweets/" target="_blank" rel="noopener noreferrer">Voir toutes mes créations sur Instagram</a>
+  </section>
+
+
+  <section class="block" id="avis" aria-labelledby="avh">
+    <h2 id="avh">Ils me font confiance</h2>
+    <div class="quotes">
+      <figure class="quote">
+        <blockquote>Il était encore plus beau que je l'imaginais. Tout le monde l'a adoré, autant pour son élégance que pour son goût délicieux. Merci pour ton talent, ta gentillesse et ton travail soigné, je te recommande les yeux fermés !</blockquote>
+        <figcaption><span>Une cliente, gâteau d'anniversaire</span><a href="https://www.instagram.com/p/DdqLGPKIeTo/" target="_blank" rel="noopener noreferrer">Voir sur Instagram</a></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>C'était super bon, les petits se sont régalés et nous aussi !</blockquote>
+        <figcaption><span>Une maman, gâteau Pat'Patrouille</span><a href="https://www.instagram.com/p/DfpDRejo2jQ/" target="_blank" rel="noopener noreferrer">Voir sur Instagram</a></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>On m'a recommandé chez vous.</blockquote>
+        <figcaption><span>Ce que me disent régulièrement de nouveaux clients</span><a href="https://www.instagram.com/p/Dbm5_6ktuCH/" target="_blank" rel="noopener noreferrer">Voir sur Instagram</a></figcaption>
+      </figure>
+    </div>
+    <div class="trust">
+      <div><b>Des clientes fidèles</b>Certaines familles me confient leurs gâteaux depuis 5 ou 6 ans, d'anniversaire en anniversaire.</div>
+      <div><b>Le bouche-à-oreille</b>Beaucoup de commandes arrivent par recommandation.</div>
+      <div><b>Fait main à Paris 18</b>Chaque gâteau est réalisé sur mesure dans mon atelier.</div>
+    </div>
+    <p class="small">Messages de clients partagés sur le compte Instagram de Bagisweets.</p>
+  </section>
+
+  <section class="block" id="atelier" aria-labelledby="ath">
+    <h2 id="ath">L'atelier et la formation</h2>
+    <div class="atelier">
+      <div class="school">
+        <div class="seal" aria-hidden="true">F</div>
+        <p><b>Formée à Ferrandi Paris.</b> Je suis diplômée de FERRANDI Paris, école française de gastronomie, et je transmets aujourd'hui ce que j'ai appris.</p>
+      </div>
+      <p>Je vous accueille dans mon atelier à Paris 18e pour une journée de formation en cake design, dans la bonne humeur. Vous repartez avec de nouvelles techniques, et votre création.</p>
+      <ul>
+        <li>Layer cake</li>
+        <li>Cupcakes</li>
+        <li>Number cake</li>
+        <li>Sweet tables</li>
+        <li>Mignardises sucrées ou salées</li>
+      </ul>
+      <p class="small">Les réservations se font en message privé, ou par le formulaire ci-dessous. Dates et tarifs sur demande.</p>
+      <div class="acts">
+        <a class="btn primary" id="atwa" href="#" target="_blank" rel="noopener noreferrer">Demander les prochaines dates</a>
+        <button class="btn ghost" type="button" id="atform">Choisir l'atelier dans le formulaire</button>
+        <a class="btn ghost" href="https://www.instagram.com/p/DfNzy-8oWTU/" target="_blank" rel="noopener noreferrer">Voir une journée de formation</a>
+      </div>
+    </div>
   </section>
 
   <div class="grid" id="commande">
@@ -245,7 +328,7 @@ footer a { color: var(--accent); }
     </aside>
   </div>
   <div class="bar off" id="bar"><a class="btn primary" href="#commande">Je commande</a><a class="btn ghost" id="barwa" href="https://wa.me/33607362351" target="_blank" rel="noopener">WhatsApp</a></div>
-  <footer>Bagisweets, pâtisserie artisanale. Atelier à Paris 18. <a href="https://www.instagram.com/bagisweets/" target="_blank" rel="noopener noreferrer">Instagram</a></footer>
+  <footer>Bagisweets, pâtisserie artisanale. Atelier à Paris 18. <a href="https://www.instagram.com/bagisweets/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://www.tiktok.com/@bagisweets.patiss" target="_blank" rel="noopener noreferrer">TikTok</a> · <a href="https://www.facebook.com/share/1Cc7MkVNPC/" target="_blank" rel="noopener noreferrer">Facebook</a></footer>
 </div>
 
 <script>
@@ -1577,6 +1660,14 @@ function pick(g) {
   $("qty").focus({ preventScroll: true });
 }
 $("barwa").href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Bonjour Bagisweets, j'ai une question.");
+$("atwa").href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Bonjour Bagisweets, je souhaite des informations sur vos formations en cake design (dates et tarifs).");
+$("atform").addEventListener("click", function () {
+  var r = document.querySelector('input[name="type"][value="atelier"]');
+  if (r) { r.checked = true; state.type = "atelier"; }
+  refresh();
+  $("f").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("qty").focus({ preventScroll: true });
+});
 $("more").addEventListener("click", function () { shown += STEP; renderGallery(); });
 (function () {
   var bar = $("bar");
