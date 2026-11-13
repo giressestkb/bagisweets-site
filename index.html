@@ -167,6 +167,20 @@ section.block h2 { font-family: var(--font-display); font-size: clamp(22px, 4vw,
 .school .seal { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; }
 .school p { margin: 0; font-size: 15px; }
 @media (max-width: 640px) { .social a { flex-basis: 100%; } .atelier { padding: 18px; } }
+
+/* ---- Présentation : pâtissière, Ferrandi, atelier ---- */
+.facts a { background: var(--surface); color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 700; text-decoration: none; }
+.about { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 22px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+.about img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; display: block; background: var(--accent-soft); }
+.about .txt { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.about h2 { font-family: var(--font-display); font-size: clamp(24px, 4.5vw, 32px); line-height: 1.1; margin: 0; }
+.about p { margin: 0; }
+.about .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.about .pills span { background: var(--accent-soft); border-radius: 999px; padding: 5px 12px; font-size: 14px; font-weight: 500; }
+.about .pills span.hl { background: var(--accent); color: var(--accent-fg); font-weight: 700; }
+.about .acts { display: flex; flex-wrap: wrap; gap: 10px; }
+.about .acts .btn { flex: 1 1 180px; }
+@media (max-width: 640px) { .about { grid-template-columns: minmax(0, 1fr); padding: 14px; } .about img { aspect-ratio: 1 / 1; object-position: top; } }
 </style>
 </head>
 <body>
@@ -179,6 +193,7 @@ section.block h2 { font-family: var(--font-display); font-size: clamp(22px, 4vw,
       <span>Paris 18</span>
       <span>Retrait à l'atelier</span>
       <span class="hl">Diplômée de Ferrandi Paris</span>
+      <a href="#atelier">Ateliers de formation</a>
     </div>
   </header>
 
@@ -187,6 +202,20 @@ section.block h2 { font-family: var(--font-display); font-size: clamp(22px, 4vw,
     <a href="https://www.tiktok.com/@bagisweets.patiss" target="_blank" rel="noopener noreferrer"><b>TikTok</b><small>@bagisweets.patiss · en vidéo</small></a>
     <a href="https://www.facebook.com/share/1Cc7MkVNPC/" target="_blank" rel="noopener noreferrer"><b>Facebook</b><small>Bagisweets · actualités</small></a>
   </nav>
+
+  <section class="about" id="patissiere" aria-labelledby="abh">
+    <img src="img/portrait.jpg" width="560" height="700" alt="La pâtissière de Bagisweets, en veste rose dans son atelier à Paris 18e" loading="eager" decoding="async">
+    <div class="txt">
+      <h2 id="abh">Votre pâtissière, formée à Ferrandi Paris</h2>
+      <div class="pills"><span class="hl">Diplômée de FERRANDI Paris</span><span>Atelier à Paris 18e</span><span>Formations en cake design</span></div>
+      <p>Formée à FERRANDI Paris, école française de gastronomie, je crée chaque gâteau sur mesure dans mon atelier du 18e arrondissement.</p>
+      <p>J'y reçois aussi celles et ceux qui veulent apprendre : layer cake, cupcakes, number cake, sweet tables et mignardises.</p>
+      <div class="acts">
+        <a class="btn primary" href="#atelier">Découvrir l'atelier de formation</a>
+        <a class="btn ghost" href="#commande">Commander un gâteau</a>
+      </div>
+    </div>
+  </section>
 
   <section id="gallery" aria-labelledby="gh">
     <h2 id="gh">Quelques créations</h2>
