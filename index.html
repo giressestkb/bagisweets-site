@@ -102,7 +102,7 @@ footer { color: var(--muted); font-size: 13px; }
 .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
 .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
 .shot { margin: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.shot img { width: 100%; aspect-ratio: 7 / 10; object-fit: cover; object-position: top; border-radius: 12px; background: var(--accent-soft); display: block; }
+.shot img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: top; border-radius: 12px; background: var(--accent-soft); display: block; }
 .shot figcaption { display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
 .shot figcaption b { font-weight: 700; }
 .shot figcaption small { color: var(--muted); font-size: 12px; }
@@ -349,7 +349,7 @@ $("copy").addEventListener("click", function () {
     navigator.clipboard.writeText(txt).then(function () { $("status").textContent = "Message copié."; }, fallback);
   } catch (err) { fallback(); }
 });
-/* Galerie : images extraites des publications Instagram @bagisweets (dossier img/), chaque photo renvoie vers sa publication. */
+/* Galerie : couvertures des publications Instagram @bagisweets (dossier img/), chaque photo renvoie vers sa publication. */
 var IG_PROFILE = "https://www.instagram.com/bagisweets/";
 function srcUrl(id) { return id === "flyer-sale" ? IG_PROFILE : "https://www.instagram.com/p/" + id + "/"; }
 var GALLERY = [
@@ -370,6 +370,12 @@ var GALLERY = [
   "cat": "Mariage",
   "type": "wedding",
   "title": "Gâteau 2 étages, fleurs et perles"
+ },
+ {
+  "id": "DbyXjfBtIrh",
+  "cat": "Mariage",
+  "type": "wedding",
+  "title": "Italian wedding cakes aux framboises"
  },
  {
   "id": "DbutucotAPV",
@@ -396,6 +402,12 @@ var GALLERY = [
   "title": "Gâteau 3 étages, fleurs colorées"
  },
  {
+  "id": "Da0VCfVtnzk",
+  "cat": "Mariage",
+  "type": "wedding",
+  "title": "Wedding cake 3 étages, roses rouges et mariés"
+ },
+ {
   "id": "DSNWGKoCL7m",
   "cat": "Mariage",
   "type": "wedding",
@@ -406,6 +418,18 @@ var GALLERY = [
   "cat": "Fiançailles, baptême et baby shower",
   "type": "gateau",
   "title": "Gâteau d'initiales, fleurs blanches"
+ },
+ {
+  "id": "DfHrEQfokW0",
+  "cat": "Fiançailles, baptême et baby shower",
+  "type": "gateau",
+  "title": "Gâteau cœur Boy or Girl"
+ },
+ {
+  "id": "De0xWtEoTqm",
+  "cat": "Fiançailles, baptême et baby shower",
+  "type": "gateau",
+  "title": "Gâteau cœur Engaged, fiançailles"
  },
  {
   "id": "DbDJ1GRt1l3",
@@ -486,10 +510,22 @@ var GALLERY = [
   "title": "Gâteau château de princesses"
  },
  {
+  "id": "DS7unQjiOP2",
+  "cat": "Reine des neiges et princesses",
+  "type": "gateau",
+  "title": "La Reine des neiges, château de glace"
+ },
+ {
   "id": "DSzcrYrjUnX",
   "cat": "Reine des neiges et princesses",
   "type": "gateau",
   "title": "Gâteau princesses Disney"
+ },
+ {
+  "id": "Dd4DztEo7c9",
+  "cat": "Disney, Stitch et Barbie",
+  "type": "gateau",
+  "title": "Tarte Minnie aux fruits rouges"
  },
  {
   "id": "DcdJcuBNWlI",
@@ -502,6 +538,12 @@ var GALLERY = [
   "cat": "Disney, Stitch et Barbie",
   "type": "gateau",
   "title": "Gâteau Vaiana, mer et coquillages"
+ },
+ {
+  "id": "DXL9y5JjRo_",
+  "cat": "Disney, Stitch et Barbie",
+  "type": "gateau",
+  "title": "Gâteau Alice au pays des merveilles"
  },
  {
   "id": "DXB8KG7jap0",
@@ -526,6 +568,12 @@ var GALLERY = [
   "cat": "Disney, Stitch et Barbie",
   "type": "gateau",
   "title": "Gâteau Barbie"
+ },
+ {
+  "id": "DSrP3_NCN7e",
+  "cat": "Disney, Stitch et Barbie",
+  "type": "gateau",
+  "title": "Gâteau Hello Kitty"
  },
  {
   "id": "DSZUsLoiGeG",
@@ -570,10 +618,10 @@ var GALLERY = [
   "title": "Gâteau Spider-Man"
  },
  {
-  "id": "DW5q5PSCDBT",
+  "id": "DXMAZWdDUcF",
   "cat": "Super-héros et jeux vidéo",
   "type": "gateau",
-  "title": "Gâteau noir et or, griffes"
+  "title": "Gâteau cœur anime, crème rouge"
  },
  {
   "id": "DTxNuJ-jfz6",
@@ -586,6 +634,12 @@ var GALLERY = [
   "cat": "Super-héros et jeux vidéo",
   "type": "gateau",
   "title": "Gâteau noir et blanc, super-héros"
+ },
+ {
+  "id": "DR35xojCFcl",
+  "cat": "Super-héros et jeux vidéo",
+  "type": "gateau",
+  "title": "Gâteau Venom"
  },
  {
   "id": "DfpDRejo2jQ",
@@ -676,6 +730,12 @@ var GALLERY = [
   "cat": "Voitures, foot et sport",
   "type": "gateau",
   "title": "Gâteau Real Madrid, foot"
+ },
+ {
+  "id": "DYQ9XZkIi_b",
+  "cat": "Voitures, foot et sport",
+  "type": "gateau",
+  "title": "Gâteau Real Madrid et football"
  },
  {
   "id": "DXbZ58lDRh5",
@@ -882,12 +942,6 @@ var GALLERY = [
   "title": "Gâteau 52 ans, madras et fleurs"
  },
  {
-  "id": "DZSV6gYt5GN",
-  "cat": "Anniversaires adultes",
-  "type": "gateau",
-  "title": "Gâteau 70 ans, fleurs colorées"
- },
- {
   "id": "DYjnJpiNCB0",
   "cat": "Anniversaires adultes",
   "type": "gateau",
@@ -990,6 +1044,12 @@ var GALLERY = [
   "title": "Gâteau livre, fleurs et rubans"
  },
  {
+  "id": "DeCL7epIGB-",
+  "cat": "Vintage, cœur et livre",
+  "type": "gateau",
+  "title": "Gâteau livre ouvert et fleurs"
+ },
+ {
   "id": "DdnqptHI8ku",
   "cat": "Vintage, cœur et livre",
   "type": "gateau",
@@ -1006,6 +1066,18 @@ var GALLERY = [
   "cat": "Vintage, cœur et livre",
   "type": "gateau",
   "title": "Gâteau cœur et chocolats"
+ },
+ {
+  "id": "DdLZmsqIVQz",
+  "cat": "Vintage, cœur et livre",
+  "type": "gateau",
+  "title": "Gâteau cœur et lys rose"
+ },
+ {
+  "id": "DdJoaoqowFr",
+  "cat": "Vintage, cœur et livre",
+  "type": "gateau",
+  "title": "Gâteau cœur vintage rose et jaune"
  },
  {
   "id": "Dbr-tyQo8ci",
@@ -1026,6 +1098,24 @@ var GALLERY = [
   "title": "Gâteau cœur aux framboises"
  },
  {
+  "id": "DYXpIkItuwR",
+  "cat": "Vintage, cœur et livre",
+  "type": "gateau",
+  "title": "Gâteau cœur léopard"
+ },
+ {
+  "id": "DYPn7GttR4q",
+  "cat": "Vintage, cœur et livre",
+  "type": "gateau",
+  "title": "Mini gâteau cœur rose"
+ },
+ {
+  "id": "DX1AOWGNIT0",
+  "cat": "Vintage, cœur et livre",
+  "type": "gateau",
+  "title": "Gâteau cœur mangue et fraises"
+ },
+ {
   "id": "DXbZgCejbcH",
   "cat": "Vintage, cœur et livre",
   "type": "gateau",
@@ -1038,10 +1128,28 @@ var GALLERY = [
   "title": "Gâteau cœur noir et doré"
  },
  {
+  "id": "DVODTKeCIqa",
+  "cat": "Vintage, cœur et livre",
+  "type": "gateau",
+  "title": "Mini gâteau vintage rose"
+ },
+ {
+  "id": "DResYXLCPA1",
+  "cat": "Vintage, cœur et livre",
+  "type": "gateau",
+  "title": "Gâteau cœur vintage et rubans"
+ },
+ {
   "id": "DfcAgoBRKKY",
   "cat": "Fleurs et gâteaux élégants",
   "type": "gateau",
   "title": "Gâteau aux framboises et nœud"
+ },
+ {
+  "id": "DfEgLVKIqmN",
+  "cat": "Fleurs et gâteaux élégants",
+  "type": "gateau",
+  "title": "Gâteau rose et nœuds"
  },
  {
   "id": "DegRMZqtSJ3",
@@ -1072,6 +1180,18 @@ var GALLERY = [
   "cat": "Fleurs et gâteaux élégants",
   "type": "gateau",
   "title": "Gâteau fuchsia et doré"
+ },
+ {
+  "id": "Dd08mBRokhJ",
+  "cat": "Fleurs et gâteaux élégants",
+  "type": "gateau",
+  "title": "Gâteau papillons mauves"
+ },
+ {
+  "id": "Ddwlqzjoea4",
+  "cat": "Fleurs et gâteaux élégants",
+  "type": "gateau",
+  "title": "Gâteau crème et rose"
  },
  {
   "id": "DdN9CGKoLbO",
@@ -1182,10 +1302,22 @@ var GALLERY = [
   "title": "Gâteau rose et tulipes"
  },
  {
+  "id": "DXRwOMJCOHX",
+  "cat": "Fleurs et gâteaux élégants",
+  "type": "gateau",
+  "title": "Gâteau rectangle rose et crème"
+ },
+ {
   "id": "DXL_JtvjVfs",
   "cat": "Fleurs et gâteaux élégants",
   "type": "gateau",
   "title": "Gâteau fruits exotiques et fleurs"
+ },
+ {
+  "id": "DW8wWVeDX8y",
+  "cat": "Fleurs et gâteaux élégants",
+  "type": "gateau",
+  "title": "Gâteau blanc plissé, Happy Birthday"
  },
  {
   "id": "DWganLsCBI6",
@@ -1234,6 +1366,12 @@ var GALLERY = [
   "cat": "Fleurs et gâteaux élégants",
   "type": "gateau",
   "title": "Gâteau noir et blanc, papillon"
+ },
+ {
+  "id": "DVBF17wDXTO",
+  "cat": "Fleurs et gâteaux élégants",
+  "type": "gateau",
+  "title": "Gâteau fleurs roses et blanches"
  },
  {
   "id": "DU-kTE9iEU_",
@@ -1320,6 +1458,12 @@ var GALLERY = [
   "title": "Box de cupcakes et gâteau, papillons"
  },
  {
+  "id": "DbILLtutnDV",
+  "cat": "Box, cupcakes et pâtisseries",
+  "type": "box",
+  "title": "Box de cupcakes et gâteau, orange et fleurs"
+ },
+ {
   "id": "DbBTIHwNBrc",
   "cat": "Box, cupcakes et pâtisseries",
   "type": "box",
@@ -1344,16 +1488,40 @@ var GALLERY = [
   "title": "Box de pâtisseries Ferrero"
  },
  {
+  "id": "DWDz-qODRMX",
+  "cat": "Box, cupcakes et pâtisseries",
+  "type": "box",
+  "title": "Box de cupcakes et gâteau, rose"
+ },
+ {
   "id": "DUmxLukiATn",
   "cat": "Box, cupcakes et pâtisseries",
   "type": "box",
   "title": "Box cadeau cœur Love"
  },
  {
+  "id": "DTQBc9WiKum",
+  "cat": "Box, cupcakes et pâtisseries",
+  "type": "box",
+  "title": "Box de cupcakes et gâteau rouge"
+ },
+ {
   "id": "DSsOpSZiABr",
   "cat": "Box, cupcakes et pâtisseries",
   "type": "box",
   "title": "Box de gâteaux, chocolats et macarons"
+ },
+ {
+  "id": "DfMHLLDo_vI",
+  "cat": "Halloween et fêtes de fin d'année",
+  "type": "gateau",
+  "title": "Gâteau Halloween, citrouille"
+ },
+ {
+  "id": "DSW76nljZkr",
+  "cat": "Halloween et fêtes de fin d'année",
+  "type": "gateau",
+  "title": "Pâtisseries de fêtes, macarons et tartelettes"
  },
  {
   "id": "DWBbcWECC6E",
