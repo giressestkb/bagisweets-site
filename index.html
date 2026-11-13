@@ -181,6 +181,13 @@ section.block h2 { font-family: var(--font-display); font-size: clamp(22px, 4vw,
 .about .acts { display: flex; flex-wrap: wrap; gap: 10px; }
 .about .acts .btn { flex: 1 1 180px; }
 @media (max-width: 640px) { .about { grid-template-columns: minmax(0, 1fr); padding: 14px; } .about img { aspect-ratio: 1 / 1; object-position: top; } }
+.picked { display: flex; gap: 12px; align-items: center; background: var(--accent-soft); border-radius: 12px; padding: 10px 12px; }
+.picked[hidden] { display: none; }
+.picked img { width: 56px; height: 80px; object-fit: cover; border-radius: 8px; flex: 0 0 auto; background: var(--surface); }
+.picked .pk { display: flex; flex-direction: column; min-width: 0; font-size: 14px; flex: 1; }
+.picked .pk span { overflow-wrap: anywhere; }
+.picked .pk small { color: var(--muted); font-size: 12px; }
+.picked .btn { min-height: 40px; padding: 8px 14px; flex: 0 0 auto; }
 </style>
 </head>
 <body>
@@ -307,6 +314,11 @@ section.block h2 { font-family: var(--font-display); font-size: clamp(22px, 4vw,
           <input id="theme" type="text" placeholder="ex. Roi Lion, K-pop, rose et doré avec portrait">
           <span class="hint" id="themeHint">Joignez des photos d'inspiration sur WhatsApp après l'envoi.</span>
         </label>
+        <div class="picked" id="picked" hidden>
+          <img id="pickedImg" alt="" width="56" height="80">
+          <div class="pk"><b>Photo d'inspiration</b><span id="pickedTitle"></span><small>Son lien sera ajouté à votre message WhatsApp, avec un aperçu de la photo.</small></div>
+          <button type="button" class="btn ghost" id="pickedClear">Retirer</button>
+        </div>
         <label for="flavor">Saveurs souhaitées
           <input id="flavor" type="text" placeholder="ex. vanille, framboise, chocolat">
         </label>
@@ -387,7 +399,7 @@ var CONFIG = {
 };
 
 var $ = function (id) { return document.getElementById(id); };
-var state = { type: CONFIG.types[0].id };
+var state = { type: CONFIG.types[0].id, photo: null };
 
 function money(t) { return t.from == null ? "Sur devis" : "À partir de " + t.from + " €"; }
 
@@ -425,6 +437,7 @@ function build() {
   if ($("date").value) lines.push("• Date souhaitée : " + frDate($("date").value));
   if ($("occasion").value) lines.push("• Occasion : " + $("occasion").value);
   if ($("theme").value.trim()) lines.push("• " + t.theme + " : " + $("theme").value.trim());
+  if (state.photo) lines.push("• Photo d'inspiration : " + srcUrl(state.photo.id));
   if ($("flavor").value.trim()) lines.push("• Saveurs : " + $("flavor").value.trim());
   if ($("allergies").value.trim()) lines.push("• Allergies / régime : " + $("allergies").value.trim());
   var mode = document.querySelector('input[name="mode"]:checked').value;
@@ -435,8 +448,14 @@ function build() {
   return lines.join("\n");
 }
 
+function renderPicked() {
+  var p = state.photo;
+  $("picked").hidden = !p;
+  if (p) { $("pickedImg").src = "img/" + p.id + ".jpg"; $("pickedTitle").textContent = p.title; }
+}
 function refresh() {
   var t = curType();
+  renderPicked();
   $("qtyLabel").textContent = t.unit; $("qty").placeholder = t.ph;
   $("themeLabel").textContent = t.theme; $("themeHint").textContent = t.themeHint;
   $("addrWrap").hidden = document.querySelector('input[name="mode"]:checked').value !== "Livraison";
@@ -1696,6 +1715,7 @@ function pick(g) {
   var r = document.querySelector('input[name="type"][value="' + g.type + '"]');
   if (r) { r.checked = true; state.type = g.type; }
   $("theme").value = g.pre ? g.title : "Style comme « " + g.title + " »";
+  state.photo = g.pre ? null : g;
   refresh();
   $("f").scrollIntoView({ behavior: "smooth", block: "start" });
   $("qty").focus({ preventScroll: true });
@@ -1709,6 +1729,7 @@ $("atform").addEventListener("click", function () {
   $("f").scrollIntoView({ behavior: "smooth", block: "start" });
   $("qty").focus({ preventScroll: true });
 });
+$("pickedClear").addEventListener("click", function () { state.photo = null; refresh(); });
 $("more").addEventListener("click", function () { shown += STEP; renderGallery(); });
 (function () {
   var bar = $("bar");
